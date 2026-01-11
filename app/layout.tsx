@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import type { Metadata } from "next";
 import "./globals.css";
 import AppLayout from "@/components/layouts/AppLayout";
