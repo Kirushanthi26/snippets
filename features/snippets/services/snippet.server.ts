@@ -5,3 +5,9 @@ export async function getSnippets() {
 
   return listOfSnippets;
 }
+
+export async function getSnippetById(id: number) {
+  return prisma.snippet.findUnique({
+    where: { id: id },
+  });
+}
