@@ -7,6 +7,8 @@ export async function getSnippets() {
 }
 
 export async function getSnippetById(id: number) {
+  await new Promise((r) => setTimeout(r, 2000));
+
   return prisma.snippet.findUnique({
     where: { id: id },
   });
