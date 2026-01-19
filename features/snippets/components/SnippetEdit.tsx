@@ -3,6 +3,7 @@
 import { snippet } from "@/types"
 import Editor from '@monaco-editor/react';
 import { useState } from "react";
+import { updateSnippet } from "../services/snippet.actions";
 
 type SnippetEditProps = {
     snippet: snippet
@@ -11,8 +12,8 @@ type SnippetEditProps = {
 export default function SnippetEdit({ snippet }: SnippetEditProps) {
     const [code, setCode] = useState<string>(snippet.code)
 
-    function handleEditorChange(value: string = "") {
-        setCode(value)
+    const handleUpdate = async () => {
+        await updateSnippet(code, snippet.id,);
     }
 
 
@@ -22,9 +23,9 @@ export default function SnippetEdit({ snippet }: SnippetEditProps) {
             height="40vh"
             defaultLanguage="javascript"
             theme="vs-dark"
-            onChange={handleEditorChange}
+            onChange={(value) => setCode(value ?? "")}
             defaultValue={code}
         />
-        <button type="submit" className="rounded p-2 bg-blue-200 ">Save</button>
+        <button type="submit" className="rounded p-2 bg-blue-200" onClick={handleUpdate}>Save</button>
     </div>
 }

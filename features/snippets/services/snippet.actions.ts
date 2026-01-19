@@ -21,3 +21,16 @@ export async function createSnippet(formData: FormData) {
   //redirect the user back to the root route
   redirect("/");
 }
+
+export async function updateSnippet(code: string, id: number) {
+  await prisma.snippet.update({
+    where: {
+      id: id,
+    },
+    data: {
+      code: code,
+    },
+  });
+
+  redirect(`/snippets/${id}`);
+}
