@@ -34,3 +34,15 @@ export async function updateSnippet(code: string, id: number) {
 
   redirect(`/snippets/${id}`);
 }
+
+export async function deleteSnippet(formData: FormData) {
+  const id = Number(formData.get("id"));
+
+  await prisma.snippet.delete({
+    where: {
+      id: id,
+    },
+  });
+
+  redirect("/");
+}
