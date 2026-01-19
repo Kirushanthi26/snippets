@@ -10,4 +10,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-technologies: next js, tailwind css, typescript, prisma, postgresql
+technologies: next js, tailwind css, typescript, prisma, postgresql, monaco-editor
+
+https://www.npmjs.com/package/@monaco-editor/react
